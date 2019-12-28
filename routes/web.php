@@ -22,3 +22,8 @@ Route::get('/home', 'HomeController@index')
 
 // Form routes
 Route::resource('form', 'FormController');
+
+// Response routes
+Route::post('submit/{slug}', 'ResponseController@store');
+Route::get('response/{response}', 'ResponseController@show');
+Route::post('response/{response}', 'ResponseController@show');
