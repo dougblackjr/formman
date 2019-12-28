@@ -17,7 +17,7 @@
 </head>
 <body>
     <div class="container mx-auto px-4" id="app">
-        @include('partials/nav')
+        @include('partials/pre-nav')
         <main class="py-4">
             @yield('content')
         </main>
