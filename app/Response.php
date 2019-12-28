@@ -16,6 +16,7 @@ class Response extends Model
 
     protected $fillable = [
     	'form_id',
+        'ip_address',
     	'data',
     	'is_spam',
     	'is_active',

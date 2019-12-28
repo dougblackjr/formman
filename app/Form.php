@@ -23,6 +23,7 @@ class Form extends Model
 		'domain',
 		'enabled',
 		'notify_by_email',
+		'webhook_url',
 	];
 
 	protected $casts = [
@@ -56,6 +57,12 @@ class Form extends Model
 	public function scopeByUser($query, $id) {
 
 		$query->where('user_id', $id);
+
+	}
+
+	public function scopeBySlug($query, $slug) {
+
+		$query->where('slug', $slug);
 
 	}
 

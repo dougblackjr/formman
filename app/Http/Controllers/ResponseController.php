@@ -2,40 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Form;
 use App\Response;
+use App\Services\ResponseService;
+use App\User;
 use Illuminate\Http\Request;
 
 class ResponseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    protected $service;
+
+    public function __construct()
     {
-        //
+
+        $this->service = new ResponseService();
+
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * used to create form submission
+     * @param  Request $request
+     * @param  string  $slug
+     * @return json
      */
-    public function create()
+    public function store(Request $request, string $slug)
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        $form = Form::bySlug($slug)->first();
+
+        $response = $this->service->create($form, $request);
+
     }
 
     /**
@@ -46,40 +43,17 @@ class ResponseController extends Controller
      */
     public function show(Response $response)
     {
-        //
+
+        return response()->json($response);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Response  $response
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Response $response)
+    public function archive(Response $response)
     {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Response  $response
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Response $response)
-    {
-        //
-    }
+        $response->update(['is_active' => !$response->is_active]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Response  $response
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Response $response)
-    {
-        //
+        return response()->json($response);
+
     }
 }
