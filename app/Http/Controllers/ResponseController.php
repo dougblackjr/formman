@@ -18,6 +18,8 @@ class ResponseController extends Controller
 
         $this->service = new ResponseService();
 
+        $this->middleware(['auth'])->except('store');
+
     }
 
     /**
@@ -32,6 +34,8 @@ class ResponseController extends Controller
         $form = Form::bySlug($slug)->first();
 
         $response = $this->service->create($form, $request);
+
+        return response()->json($request->all());
 
     }
 
@@ -52,6 +56,17 @@ class ResponseController extends Controller
     {
 
         $response->update(['is_active' => !$response->is_active]);
+
+        return response()->json($response);
+
+    }
+
+    public function delete(Response $response)
+    {
+
+        $response->update(['is_active' => false]);
+
+        $response->delete();
 
         return response()->json($response);
 

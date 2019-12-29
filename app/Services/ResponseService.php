@@ -24,10 +24,10 @@ class ResponseService extends BaseService {
 
 		$response = Response::create([
 			'form_id'		=> $form->id,
-		    'ip_address'	=> $request->getIp(),
+		    'ip_address'	=> $request->ip(),
 			'data'			=> $data,
 			'is_spam'		=> $isSpam,
-			'is_active'		=> true,
+			'is_active'		=> !$isSpam,
 		]);
 
 	}
@@ -44,7 +44,9 @@ class ResponseService extends BaseService {
 
 		$data = clone $request;
 
-		$json = json_encode($data->all());
+		$json = $data->all();
+
+		unset($json['important_checkbox']);
 
 		return $json;
 
@@ -53,7 +55,7 @@ class ResponseService extends BaseService {
 	private function isSpam($request)
 	{
 
-		return $request->has('important_checkbox') && $request->has('important_checkbox') == 'yes';
+		return $request->has('important_checkbox');
 
 	}
 

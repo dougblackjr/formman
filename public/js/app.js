@@ -1980,6 +1980,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   props: {
@@ -1989,9 +1998,83 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   data: function data() {
-    return {};
+    return {
+      formInfo: this.form,
+      responses: this.form.responses
+    };
   },
-  methods: {},
+  methods: {
+    archive: function archive(resp) {
+      var responseData = this.responses.map(function (f) {
+        if (f.id == resp.id) {
+          f.is_active = false;
+        }
+
+        return f;
+      });
+      window.axios.post("/response/".concat(resp.id)).then(function (response) {});
+    },
+    deleteResponse: function deleteResponse(resp) {
+      var responseData = this.responses.filter(function (f) {
+        return f.id !== resp.id;
+      });
+      console.log('responseData', responseData);
+      this.responses = responseData;
+      window.axios["delete"]("/response/".concat(resp.id)).then(function (response) {});
+    },
+    getDate: function getDate(resp) {
+      return new Date(Date.parse(resp.created_at)).toLocaleString();
+    },
+    getFrom: function getFrom(resp) {
+      if (resp.data) {
+        var tempData = resp.data;
+
+        if (tempData.email) {
+          return tempData.email;
+        }
+
+        if (tempData.email_address) {
+          return tempData.email_address;
+        }
+
+        if (tempData.name) {
+          return tempData.name;
+        }
+
+        if (tempData.first_name && tempData.last_name) {
+          return "".concat(tempData.first_name, " ").concat(tempData.last_name);
+        }
+      }
+
+      return resp.ip_address;
+    },
+    getData: function getData(resp) {
+      var dataResponse = '',
+          fields = resp.data;
+      var keys = Object.keys(fields);
+
+      for (var _i = 0, _keys = keys; _i < _keys.length; _i++) {
+        var key = _keys[_i];
+        dataResponse += "<strong>".concat(key, ": </strong>").concat(fields[key], "<br />");
+      }
+
+      return dataResponse;
+    },
+    getStatus: function getStatus(resp) {
+      if (resp.is_spam) {
+        return 'spam';
+      }
+
+      return resp.is_active ? 'active' : 'archived';
+    },
+    getStatusClass: function getStatusClass(resp) {
+      if (resp.is_spam) {
+        return 'bg-gray-800';
+      }
+
+      return resp.is_active ? 'bg-green-500' : 'bg-yellow-500';
+    }
+  },
   computed: {}
 });
 
@@ -20003,7 +20086,7 @@ var render = function() {
                   staticClass:
                     "text-3xl leading-tight font-heading font-semibold"
                 },
-                [_vm._v(_vm._s(_vm.form.responses_count))]
+                [_vm._v(_vm._s(_vm.formInfo.responses_count))]
               ),
               _c("span", { staticClass: "leading-none" }, [
                 _vm._v("Total Responses")
@@ -20027,7 +20110,7 @@ var render = function() {
                   staticClass:
                     "text-3xl leading-tight font-heading font-semibold"
                 },
-                [_vm._v(_vm._s(_vm.form.recent_count))]
+                [_vm._v(_vm._s(_vm.formInfo.recent_count))]
               ),
               _c("span", { staticClass: "leading-none" }, [
                 _vm._v("Last 24 Hours ")
@@ -20052,7 +20135,7 @@ var render = function() {
                   staticClass:
                     "text-3xl leading-tight font-heading font-semibold"
                 },
-                [_vm._v(_vm._s(_vm.form.spam_count))]
+                [_vm._v(_vm._s(_vm.formInfo.spam_count))]
               ),
               _c("span", { staticClass: "leading-none" }, [
                 _vm._v("Total Spam")
@@ -20068,35 +20151,72 @@ var render = function() {
       _vm._v(" "),
       _c(
         "tbody",
-        _vm._l(_vm.form.responses, function(f) {
-          return _c("tr", { key: f.id }, [
+        _vm._l(_vm.responses, function(r) {
+          return _c("tr", { key: r.id }, [
             _c("td", { staticClass: "border-t px-2 py-2" }, [
-              _vm._v(_vm._s(f.id))
+              _vm._v(_vm._s(_vm.getDate(r)))
             ]),
             _vm._v(" "),
             _c("td", { staticClass: "border-t px-2 py-2" }, [
-              _vm._v(_vm._s(f.name))
+              _vm._v(_vm._s(_vm.getFrom(r)))
             ]),
             _vm._v(" "),
-            _c("td", { staticClass: "border-t px-2 py-2" }, [
-              _vm._v(_vm._s(f.slug))
-            ]),
+            _c("td", {
+              staticClass: "border-t px-2 py-2",
+              domProps: { innerHTML: _vm._s(_vm.getData(r)) }
+            }),
             _vm._v(" "),
             _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
               _c(
                 "span",
                 {
                   staticClass:
-                    "inline-block text-sm py-1 px-3 rounded-full text-white bg-yellow-500",
-                  class: f.enabled ? "bg-green-500" : "bg-gray-800"
+                    "inline-block text-sm py-1 px-3 rounded-full text-white",
+                  class: _vm.getStatusClass(r)
                 },
-                [_vm._v(_vm._s(f.enabled ? "Enabled" : "Disabled"))]
+                [
+                  _vm._v(
+                    "\n\t\t\t            \t" +
+                      _vm._s(_vm.getStatus(r)) +
+                      "\n\t\t\t            "
+                  )
+                ]
               )
             ]),
             _vm._v(" "),
-            _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
-              _vm._v(_vm._s(f.responses_count))
-            ])
+            _c(
+              "td",
+              { staticClass: "text-center border-t px-2 py-2 flex flex-row" },
+              [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center text-xs w-half",
+                    on: {
+                      click: function($event) {
+                        return _vm.archive(r)
+                      }
+                    }
+                  },
+                  [_c("span", [_vm._v("Archive")])]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "bg-red-700 hover:bg-red-900 text-white font-bold py-2 px-4 rounded inline-flex items-center text-xs w-half",
+                    on: {
+                      click: function($event) {
+                        return _vm.deleteResponse(r)
+                      }
+                    }
+                  },
+                  [_c("span", [_vm._v("Delete")])]
+                )
+              ]
+            )
           ])
         }),
         0
@@ -20114,19 +20234,19 @@ var staticRenderFns = [
         _c(
           "th",
           { staticClass: "border-t px-2 py-2", attrs: { scope: "col" } },
-          [_vm._v("ID #")]
+          [_vm._v("Date")]
         ),
         _vm._v(" "),
         _c(
           "th",
           { staticClass: "border-t px-2 py-2", attrs: { scope: "col" } },
-          [_vm._v("Name")]
+          [_vm._v("From")]
         ),
         _vm._v(" "),
         _c(
           "th",
           { staticClass: "border-t px-2 py-2", attrs: { scope: "col" } },
-          [_vm._v("Slug")]
+          [_vm._v("Data")]
         ),
         _vm._v(" "),
         _c(
@@ -20144,7 +20264,7 @@ var staticRenderFns = [
             staticClass: "text-center border-t px-2 py-2",
             attrs: { scope: "col" }
           },
-          [_vm._v("Responses")]
+          [_vm._v("Actions")]
         )
       ])
     ])

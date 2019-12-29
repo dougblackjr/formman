@@ -104,7 +104,9 @@ class FormController extends Controller
         $this->authorize('read', $form);
 
         $formToSend = Form::find($form->id)
-                            ->with('responses')
+                            ->with(['responses' => function($q) {
+                                $q->orderBy('created_at', 'desc');
+                            }])
                             ->withCount([
                                 'responses',
                                 'responses as spam_count' => function(Builder $query) {
@@ -122,6 +124,15 @@ class FormController extends Controller
 
     }
 
+    public function edit(Form $form)
+    {
+
+        $this->authorize('edit', $form);
+
+        return view('forms.edit', compact('form'));
+
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -132,11 +143,20 @@ class FormController extends Controller
     public function update(FormRequest $request, Form $form)
     {
 
-        $this->authorize('update', $form);
+        $this->authorize('edit', $form);
 
-        $form->update($request->all());
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'domain' => $request->domain,
+            'notify_by_email' => $request->has('notify_by_email'),
+            'webhook_url' => $request->webhook_url,
+            'enabled' => $request->has('enabled'),
+        ];
 
-        return response()->json($form);
+        $form->update($data);
+
+        return redirect("/form/{$form->id}");
 
     }
 

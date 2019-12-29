@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Response extends Model
 {
+
+    use SoftDeletes;
+
     protected $table = 'responses';
 
     protected $dates = [
@@ -23,9 +27,9 @@ class Response extends Model
     ];
 
     protected $casts = [
-    	'data'		=> 'array',
     	'is_spam'	=> 'boolean',
     	'is_active'	=> 'boolean',
+        'data'      => 'array',
     ];
 
     public function form() {
