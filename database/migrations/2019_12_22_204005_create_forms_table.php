@@ -24,7 +24,7 @@ class CreateFormsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->uuid('slug');
-            $table->string('domain');
+            $table->string('domain')->nullable();
             $table->boolean('enabled')->default(true);
             $table->boolean('notify_by_email')->default(true);
             $table->timestamps();

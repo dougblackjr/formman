@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Form;
 use App\Response;
-use App\Requests\FormRequest;
+use App\Http\Requests\FormRequest;
 use App\User;
 use Auth;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -22,9 +23,46 @@ class FormController extends Controller
 
         $user = Auth::user();
 
-        $forms = Form::byUser($user->id)->withCount('responses');
+        $forms = Form::byUser($user->id)
+                        ->withCount([
+                            'responses',
+                            'responses as spam_count' => function(Builder $query) {
+                                $query->where('is_spam', true);
+                            },
+                            'responses as recent_count' => function(Builder $query) {
+                                $query->where('created_at', '>=', now()->subDay());
+                            }
+                        ])
+                        ->get();
 
-        return response()->json($forms);
+        $responses_count = $forms->reduce(function($carry, $f) {
+            return $carry + $f->responses_count;
+        });
+        
+        $spam_count = $forms->reduce(function($carry, $f) {
+            return $carry + $f->spam_count;
+        });
+        
+        $recent_count = $forms->reduce(function($carry, $f) {
+            return $carry + $f->recent_count;
+        });
+
+        $data = [
+            'forms'             => $forms,
+            'total_forms'       => $forms->count(),
+            'total_responses'   => $responses_count ?? 0,
+            'total_spam'        => $spam_count ?? 0,
+            'total_recent'      => $recent_count ?? 0,
+        ];
+
+        return response()->json($data);
+
+    }
+
+    public function create()
+    {
+
+        return view('forms.create');
 
     }
 
@@ -47,9 +85,10 @@ class FormController extends Controller
             'domain' => $request->domain,
             'enabled' => true,
             'notify_by_email' => $request->notify_by_email,
+            'webhook_url' => $request->webhook_url
         ]);
 
-        return response()->json($form);
+        return redirect("/form/{$form->id}");
         
     }
 
@@ -64,7 +103,20 @@ class FormController extends Controller
 
         $this->authorize('read', $form);
 
-        $form->load('responses');
+        $formToSend = Form::find($form->id)
+                            ->with('responses')
+                            ->withCount([
+                                'responses',
+                                'responses as spam_count' => function(Builder $query) {
+                                    $query->where('is_spam', true);
+                                },
+                                'responses as recent_count' => function(Builder $query) {
+                                    $query->where('created_at', '>=', now()->subDay());
+                                }
+                            ])
+                            ->first();
+
+        $form = $formToSend;
 
         return view('forms.view', compact('form'));
 

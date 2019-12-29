@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Foundation\Http\FormRequest as LaravelFormRequest;
 
-class FormRequest extends FormRequest
+class FormRequest extends LaravelFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,12 @@ class FormRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'           => 'required|',
             'name'              => 'required|string',
             'email'             => 'required|email',
-            'domain'            => '',
+            'domain'            => 'nullable|url',
             'enabled'           => 'boolean',
             'notify_by_email'   => 'boolean',
-            'webhook_url'       => '',
+            'webhook_url'       => 'nullable|url',
         ];
     }
 }

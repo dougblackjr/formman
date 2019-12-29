@@ -1,28 +1,22 @@
 <template>
 	<div>
 		<div class="flex flex-wrap -mx-4 mb-8">
-		    <div class="w-full lg:w-1/4 px-4 mb-6 lg:mb-0">
+		    <div class="w-full md:w-1/3 px-4 mb-6 lg:mb-0">
 		        <div class="h-full">
 		            <div class="text-center p-4 mb-2 bg-blue-500 text-white rounded">
-		                <h3 class="text-3xl leading-tight font-heading font-semibold">{{ total_responses }}</h3><span class="leading-none">Total Responses</span></div>
+		                <h3 class="text-3xl leading-tight font-heading font-semibold">{{ form.responses_count }}</h3><span class="leading-none">Total Responses</span></div>
 		        </div>
 		    </div>
-		    <div class="w-full lg:w-1/4 px-4 mb-6 lg:mb-0">
+		    <div class="w-full md:w-1/3 px-4 mb-6 lg:mb-0">
 		        <div class="h-full">
 		            <div class="text-center p-4 mb-2 bg-red-500 text-white rounded">
-		                <h3 class="text-3xl leading-tight font-heading font-semibold">{{ total_recent }}</h3><span class="leading-none">Last 24 Hours </span></div>
+		                <h3 class="text-3xl leading-tight font-heading font-semibold">{{ form.recent_count }}</h3><span class="leading-none">Last 24 Hours </span></div>
 		        </div>
 		    </div>
-		    <div class="w-full lg:w-1/4 px-4 mb-6 lg:mb-0">
+		    <div class="w-full md:w-1/3 px-4 mb-6 lg:mb-0">
 		        <div class="h-full">
 		            <div class="text-center p-4 mb-2 bg-green-500 text-white rounded">
-		                <h3 class="text-3xl leading-tight font-heading font-semibold">{{ total_spam }}</h3><span class="leading-none">Total Spam</span></div>
-		        </div>
-		    </div>
-		    <div class="w-full lg:w-1/4 px-4 mb-6 lg:mb-0">
-		        <div class="h-full">
-		            <div class="text-center p-4 mb-2 bg-gray-800 text-white rounded">
-		                <h3 class="text-3xl leading-tight font-heading font-semibold">{{ total_forms }}</h3><span class="leading-none">Total Forms</span></div>
+		                <h3 class="text-3xl leading-tight font-heading font-semibold">{{ form.spam_count }}</h3><span class="leading-none">Total Spam</span></div>
 		        </div>
 		    </div>
 		</div>
@@ -37,7 +31,7 @@
 		        </tr>
 		    </thead>
 		    <tbody>
-		        <tr v-for="f in forms" :key="f.id" class="cursor-pointer" v-on:click="goToForm(f.id)">
+		        <tr v-for="f in form.responses" :key="f.id">
 		            <td class="border-t px-2 py-2">{{ f.id }}</td>
 		            <td class="border-t px-2 py-2">{{ f.name }}</td>
 		            <td class="border-t px-2 py-2">{{ f.slug }}</td>
@@ -53,37 +47,23 @@
 
 <script>
 	export default {
+		components: {},
+		props: {
+			form: {
+				type: Object,
+				required: true
+			}
+		},
 		data() {
 			return {
 
 			}
 		},
 		methods: {
-			goToForm(id) {
-				window.location = `/form/${id}`
-			}
+			
 		},
 		computed: {
-			forms() {
-				return this.$store.state.forms
-			},
-			total_forms() {
-				return this.$store.state.total_forms
-			},
-			total_responses() {
-				return this.$store.state.total_responses
-			},
-			total_spam() {
-				return this.$store.state.total_spam
-			},
-			total_recent() {
-				return this.$store.state.total_recent
-			}
-		},
-		mounted() {
-			this.$store.dispatch('getForms')
+
 		}
 	};
 </script>
-<style lang="scss" scoped>
-</style>

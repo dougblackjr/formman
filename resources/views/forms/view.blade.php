@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Form</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
+<section class="py-8 px-4">
+    <div class="flex flex-row">
+        <div class="w-full lg:w-2/3 px-6 mb-8 lg:mb-0">
+            <h2 class="text-3xl mb-2 font-heading font-semibold">{{ $form->name }}</h2>
+        </div>
+        <div class="flex flex-row w-full lg:w-1/3 px-6 text-right">
+            <a class="w-half py-4 px-8 m-2 text-center leading-none text-white bg-gray-500 hover:bg-gray-600 rounded shadow inline-flex items-center text-sm cursor-pointer" href="#" v-on:click="toggleModal">Install Form</a>
+            </a>
+            <a class="w-half py-4 px-8 m-2 text-center leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow inline-flex items-center text-sm cursor-pointer" href="{{ route('form.edit', [ 'form' => $form->id ]) }}">Edit Form</a>
+            </a>
         </div>
     </div>
-</div>
+    <div class="flex flex-row">
+        <div class="w-full px-6 mb-8 lg:mb-0">
+            <form-dashboard :form='@json($form)' />
+        </div>
+    </div>
+    <install-form-modal :form='@json($form)' />
+</section>
 @endsection
