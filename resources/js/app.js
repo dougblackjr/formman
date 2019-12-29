@@ -19,3 +19,14 @@ const app = new Vue({
     },
     store
 });
+
+
+// Nav
+let navButton = document.getElementById('nav-button')
+
+navButton.addEventListener('click', function(event) {
+	let navDropdown = document.getElementById('nav-dropdown')
+
+	navDropdown.classList.toggle('hidden')
+	navDropdown.classList.toggle('text-center')
+})

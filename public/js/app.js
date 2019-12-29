@@ -34187,6 +34187,13 @@ var app = new Vue({
     }
   },
   store: _store__WEBPACK_IMPORTED_MODULE_1__["default"]
+}); // Nav
+
+var navButton = document.getElementById('nav-button');
+navButton.addEventListener('click', function (event) {
+  var navDropdown = document.getElementById('nav-dropdown');
+  navDropdown.classList.toggle('hidden');
+  navDropdown.classList.toggle('text-center');
 });
 
 /***/ }),
