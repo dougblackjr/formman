@@ -1842,6 +1842,81 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   props: {},
@@ -19478,9 +19553,424 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("table", { staticClass: "w-full table-auto" }, [
+      _c("thead", [
+        _c("tr", [
+          _c(
+            "th",
+            { staticClass: "border-t px-2 py-2", attrs: { scope: "col" } },
+            [_vm._v("ID #")]
+          ),
+          _vm._v(" "),
+          _c(
+            "th",
+            { staticClass: "border-t px-2 py-2", attrs: { scope: "col" } },
+            [_vm._v("Opened By")]
+          ),
+          _vm._v(" "),
+          _c(
+            "th",
+            { staticClass: "border-t px-2 py-2", attrs: { scope: "col" } },
+            [_vm._v("Cust. Email")]
+          ),
+          _vm._v(" "),
+          _c(
+            "th",
+            { staticClass: "border-t px-2 py-2", attrs: { scope: "col" } },
+            [_vm._v("Subject")]
+          ),
+          _vm._v(" "),
+          _c(
+            "th",
+            {
+              staticClass: "text-center border-t px-2 py-2",
+              attrs: { scope: "col" }
+            },
+            [_vm._v("Status")]
+          ),
+          _vm._v(" "),
+          _c(
+            "th",
+            {
+              staticClass: "text-center border-t px-2 py-2",
+              attrs: { scope: "col" }
+            },
+            [_vm._v("Assign to")]
+          ),
+          _vm._v(" "),
+          _c(
+            "th",
+            {
+              staticClass: "text-center border-t px-2 py-2",
+              attrs: { scope: "col" }
+            },
+            [_vm._v("Date")]
+          ),
+          _vm._v(" "),
+          _c(
+            "th",
+            {
+              staticClass: "text-center border-t px-2 py-2",
+              attrs: { scope: "col" }
+            },
+            [_vm._v("Action")]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("tbody", [
+        _c("tr", [
+          _c("td", { staticClass: "border-t px-2 py-2" }, [_vm._v("348")]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                staticClass: "inline-block mr-2 rounded-full",
+                attrs: {
+                  src: "placeholders/pictures/male_avatar.svg",
+                  alt: "",
+                  height: "40",
+                  width: "40"
+                }
+              }),
+              _vm._v(" Lauren North")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("lauren@gmail.com")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("Where are my files?")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "inline-block text-sm py-1 px-3 rounded-full text-white bg-yellow-500"
+              },
+              [_vm._v("New")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("Kelly Kapoor")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("18-11-2018")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "a",
+              {
+                staticClass: "text-blue-700 hover:underline",
+                attrs: { href: "#" }
+              },
+              [_vm._v("edit")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticClass: "border-t px-2 py-2" }, [_vm._v("349")]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                staticClass: "inline-block mr-2 rounded-full",
+                attrs: {
+                  src: "placeholders/pictures/male_avatar.svg",
+                  alt: "",
+                  height: "40",
+                  width: "40"
+                }
+              }),
+              _vm._v(" Kian Gray")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("kian.gray@gmail.com")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("I can't send file to my friend")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "inline-block text-sm py-1 px-3 rounded-full text-white bg-green-500"
+              },
+              [_vm._v("Resolved")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("Kelly Kapoor")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("20-11-2018")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "a",
+              {
+                staticClass: "text-blue-700 hover:underline",
+                attrs: { href: "#" }
+              },
+              [_vm._v("edit")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticClass: "border-t px-2 py-2" }, [_vm._v("350")]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                staticClass: "inline-block mr-2 rounded-full",
+                attrs: {
+                  src: "placeholders/pictures/male_avatar.svg",
+                  alt: "",
+                  height: "40",
+                  width: "40"
+                }
+              }),
+              _vm._v(" Mollie Davey")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("mollie@davey.com")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("Compressed files have low quality")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "inline-block text-sm py-1 px-3 rounded-full text-white bg-green-500"
+              },
+              [_vm._v("Resolved")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("Kelly Kapoor")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("21-11-2018")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "a",
+              {
+                staticClass: "text-blue-700 hover:underline",
+                attrs: { href: "#" }
+              },
+              [_vm._v("edit")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticClass: "border-t px-2 py-2" }, [_vm._v("351")]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                staticClass: "inline-block mr-2 rounded-full",
+                attrs: {
+                  src: "placeholders/pictures/male_avatar.svg",
+                  alt: "",
+                  height: "40",
+                  width: "40"
+                }
+              }),
+              _vm._v(" Josh Douglas")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("j.douglas@hotmail.com")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("My phone won't turn on")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "inline-block text-sm py-1 px-3 rounded-full text-white bg-gray-800"
+              },
+              [_vm._v("Pending")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("Kelly Kapoor")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("22-11-2018")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "a",
+              {
+                staticClass: "text-blue-700 hover:underline",
+                attrs: { href: "#" }
+              },
+              [_vm._v("edit")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticClass: "border-t px-2 py-2" }, [_vm._v("352")]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                staticClass: "inline-block mr-2 rounded-full",
+                attrs: {
+                  src: "placeholders/pictures/male_avatar.svg",
+                  alt: "",
+                  height: "40",
+                  width: "40"
+                }
+              }),
+              _vm._v(" Jodie Field")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("jodie@field.com")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("How to change e-mail??")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "inline-block text-sm py-1 px-3 rounded-full text-white bg-yellow-500"
+              },
+              [_vm._v("New")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("Kelly Kapoor")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("22-11-2018")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "a",
+              {
+                staticClass: "text-blue-700 hover:underline",
+                attrs: { href: "#" }
+              },
+              [_vm._v("edit")]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticClass: "border-t px-2 py-2" }, [_vm._v("353")]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _c("a", { attrs: { href: "#" } }, [
+              _c("img", {
+                staticClass: "inline-block mr-2 rounded-full",
+                attrs: {
+                  src: "placeholders/pictures/male_avatar.svg",
+                  alt: "",
+                  height: "40",
+                  width: "40"
+                }
+              }),
+              _vm._v(" Taylor Gill")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("taylor.gill777@hotmail.com")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "border-t px-2 py-2" }, [
+            _vm._v("My files are corrupted")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "inline-block text-sm py-1 px-3 rounded-full text-white bg-green-500"
+              },
+              [_vm._v("Resolved")]
+            )
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("Kelly Kapoor")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _vm._v("23-11-2018")
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "text-center border-t px-2 py-2" }, [
+            _c(
+              "a",
+              {
+                staticClass: "text-blue-700 hover:underline",
+                attrs: { href: "#" }
+              },
+              [_vm._v("edit")]
+            )
+          ])
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -32876,9 +33366,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 
-var store = new vuex__WEBPACK_IMPORTED_MODULE_0__["default"].Store({
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
+var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     count: 0
   },
