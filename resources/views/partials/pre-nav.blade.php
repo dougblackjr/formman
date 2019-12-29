@@ -13,7 +13,7 @@
     <div class="hidden lg:flex lg:flex-grow lg:items-center w-full lg:w-auto">
         <div class="ml-auto">
             <a class="block lg:inline-block mt-4 lg:mt-0 lg:mr-8 text-blue-900 hover:text-blue-700" href="/login">Sign in</a>
-            <a class="inline-block py-3 px-6 mt-4 lg:mt-0 leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow" href="/login">Sign up</a>
+            <a class="inline-block py-3 px-6 mt-4 lg:mt-0 leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow" href="/register">Sign up</a>
         </div>
     </div>
 </nav>
