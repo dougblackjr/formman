@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Form;
 use App\Response;
+use App\Services\ExportService;
 use App\Http\Requests\FormRequest;
 use App\User;
 use Auth;
@@ -176,6 +177,30 @@ class FormController extends Controller
         $form->delete();
 
         return response()->json('ok');
+
+    }
+
+    public function export(string $type, Form $form)
+    {
+
+        $formToSend = Form::find($form->id)
+                            ->with(['responses' => function($q) {
+                                $q->orderBy('created_at', 'desc');
+                            }])
+                            ->first();
+
+        $service = new ExportService($formToSend);
+
+        switch ($type) {
+            case 'excel':
+                return $service->toExcel();
+                break;
+            
+            default:
+                // We'll just do a CSV
+                return $service->toCsv();
+                break;
+        }
 
     }
 

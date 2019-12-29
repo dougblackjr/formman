@@ -26,4 +26,7 @@ Route::get('response/{response}', 'ResponseController@show');
 Route::post('response/{response}', 'ResponseController@archive');
 Route::delete('response/{response}', 'ResponseController@delete');
 
+// Export Form responses
+Route::get('/export/{type}/{form}', 'FormController@export');
+
 Route::post('/submit/{slug}', 'ResponseController@store');

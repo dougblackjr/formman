@@ -2018,7 +2018,6 @@ __webpack_require__.r(__webpack_exports__);
       var responseData = this.responses.filter(function (f) {
         return f.id !== resp.id;
       });
-      console.log('responseData', responseData);
       this.responses = responseData;
       window.axios["delete"]("/response/".concat(resp.id)).then(function (response) {});
     },

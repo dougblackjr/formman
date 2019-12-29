@@ -90,8 +90,6 @@
 					return f.id !== resp.id
 				})
 
-				console.log('responseData', responseData)
-
 				this.responses = responseData
 
 				window.axios.delete(`/response/${resp.id}`)
