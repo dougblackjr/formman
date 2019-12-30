@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="flex lg:w-1/2 px-8 mt-8 lg:mt-0 lg:border-l">
-                            <div class="my-auto">
+                            <div class="my-auto" id="">
                                 <div class="flex items-center text-xl mb-1">
                                     <img class="mr-2" src="/marketing/icons/star.svg">
                                     <span>Data Protection</span>
@@ -76,6 +76,14 @@
                                 <div class="flex items-center text-xl">
                                     <img class="mr-2" src="/marketing/icons/star.svg">
                                     <span>5-Minute Implementation</span>
+                                </div>
+                            </div>
+                            <div class="my-auto hidden" id="credit-card-form">
+                                <div class="mb-4">
+                                    <input class="appearance-none block w-full py-3 px-4 mb-2 md:mb-0 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" placeholder="Name" name="name">
+                                </div>
+                                <div class="mb-4">
+                                    <input class="appearance-none block w-full py-3 px-4 mb-2 md:mb-0 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" placeholder="Email" name="email">
                                 </div>
                             </div>
                         </div>
