@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="mb-4">
-                        <button type="submit" class="inline-block w-full py-4 px-8 leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow">Let's Go!</button>
+                        <button type="submit" class="inline-block w-full py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow">Let's Go!</button>
                     </div>
                 </form>
             </div>

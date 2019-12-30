@@ -20498,7 +20498,7 @@ var render = function() {
                       "button",
                       {
                         staticClass:
-                          "modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400",
+                          "modal-close px-4 bg-blue-500 p-3 rounded-lg text-white hover:bg-blue-400",
                         on: { click: _vm.toggleModalInternal }
                       },
                       [_vm._v("Sweet, thanks!")]
@@ -34193,7 +34193,19 @@ navButton.addEventListener('click', function (event) {
   var navDropdown = document.getElementById('nav-dropdown');
   navDropdown.classList.toggle('hidden');
   navDropdown.classList.toggle('text-center');
-});
+}); // More info button
+
+var btn = document.getElementById('more-info-button');
+
+if (btn) {
+  var scrollToArea = document.getElementById('more-info').offsetTop;
+  btn.addEventListener('click', function () {
+    return window.scrollTo({
+      top: scrollToArea,
+      behavior: 'smooth'
+    });
+  });
+}
 
 /***/ }),
 

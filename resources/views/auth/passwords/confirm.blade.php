@@ -18,9 +18,9 @@
                         <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="password" placeholder="Password" name="password" required autocomplete="current-password">
                     </div>
                     <div class="mb-4">
-                        <button type="submit" class="inline-block w-half py-4 px-8 leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow">Confirm Password</button>
+                        <button type="submit" class="inline-block w-half py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow">Confirm Password</button>
                         @if (Route::has('password.request'))
-                            <a class="inline-block w-half py-4 px-8 leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow" href="{{ route('password.request') }}">Forgot Your Password</a>
+                            <a class="inline-block w-half py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow" href="{{ route('password.request') }}">Forgot Your Password</a>
                             </a>
                         @endif
                     </div>

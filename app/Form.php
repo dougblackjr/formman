@@ -23,6 +23,7 @@ class Form extends Model
 		'name',
 		'email',
 		'slug',
+		'secret',
 		'domain',
 		'enabled',
 		'notify_by_email',

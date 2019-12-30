@@ -8,7 +8,7 @@
 			<p class="mb-4">You've got quite a bit happening!</p>
 		</div>
 		<div class="w-full lg:w-1/3 px-6 text-right">
-			<a class="w-half py-4 px-8 leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow inline-flex items-center" href="{{ route('form.create') }}">Add Form</a>
+			<a class="w-half py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow inline-flex items-center" href="{{ route('form.create') }}">Add Form</a>
 			</a>
 		</div>
 	</div>

@@ -83,6 +83,7 @@ class FormController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'slug' => Str::uuid()->toString(),
+            'secret' => Str::uuid()->toString(),
             'domain' => $request->domain,
             'enabled' => true,
             'notify_by_email' => $request->notify_by_email,

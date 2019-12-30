@@ -13,7 +13,7 @@
 					<slot name="modal-content"></slot>
 					<!--Footer-->
 					<div class="flex justify-end pt-2">
-						<button v-on:click="toggleModalInternal" class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Sweet, thanks!</button>
+						<button v-on:click="toggleModalInternal" class="modal-close px-4 bg-blue-500 p-3 rounded-lg text-white hover:bg-blue-400">Sweet, thanks!</button>
 					</div>
 				</div>
 			</div>

@@ -30,3 +30,15 @@ navButton.addEventListener('click', function(event) {
 	navDropdown.classList.toggle('hidden')
 	navDropdown.classList.toggle('text-center')
 })
+
+// More info button
+const btn = document.getElementById('more-info-button');
+
+if(btn) {
+    const scrollToArea = document.getElementById('more-info').offsetTop;
+
+    btn.addEventListener('click', () => window.scrollTo({
+        top: scrollToArea,
+        behavior: 'smooth',
+    }));
+}

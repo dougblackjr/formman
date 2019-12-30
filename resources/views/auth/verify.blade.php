@@ -12,7 +12,7 @@
                     <h3 class="text-2xl mb-2 font-heading">Let's Verify Your Email!</h3>
                     <p class="mb-8 text-gray-500 leading-relaxed">This helps us keep the app safe.</p>
                     <div class="mb-4">
-                        <button type="submit" class="inline-block w-half py-4 px-8 leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow">Click here to request another</button>
+                        <button type="submit" class="inline-block w-half py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow">Click here to request another</button>
                     </div>
                 </form>
             </div>
