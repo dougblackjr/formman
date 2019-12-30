@@ -83,9 +83,9 @@ class ExportService extends BaseService {
 	{
 
 		$headers = [
-		    'ip',
-		    'date',
-		    'status',
+		    WriterEntityFactory::createCell('ip'),
+		    WriterEntityFactory::createCell('date'),
+		    WriterEntityFactory::createCell('status'),
 		];
 
 		$extra_headers = [];
