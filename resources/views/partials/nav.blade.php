@@ -8,7 +8,7 @@
     <div id="nav-dropdown" class="hidden lg:flex lg:flex-grow lg:items-center w-full lg:w-auto">
         <div class="lg:ml-auto">
         	<a class="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-blue-700" href="/home">Forms</a>
-        	<a class="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-blue-700" href="/profile">Profile</a>
+        	{{-- <a class="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-blue-700" href="/profile">Profile</a> --}}
         	<a class="block lg:inline-block mt-4 lg:mt-0 mr-10 text-blue-900 hover:text-blue-700" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
         	    {{ __('Logout') }}
         	</a>
