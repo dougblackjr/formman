@@ -19,7 +19,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        'tier'
+        'tier',
+        'stripe_id',
     ];
 
     /**
@@ -41,6 +42,14 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     public function forms() {
+
         return $this->hasMany(Form::class);
+
+    }
+
+    public function subscriptions() {
+
+        return $this->hasMany(Subscription::class);
+
     }
 }
