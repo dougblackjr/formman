@@ -16,10 +16,10 @@
         	    @csrf
         	</form>
         </div>
-        <div>
+        {{-- <div>
 			<a class="inline-block py-3 px-6 mt-4 lg:mt-0 leading-none text-white bg-indigo-500 hover:bg-indigo-600 rounded shadow" href="/upgrade">
 				Upgrade
 			</a>
-		</div>
+		</div> --}}
 	</div>
 </nav>
