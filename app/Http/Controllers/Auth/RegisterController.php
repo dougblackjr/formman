@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Services\PaymentService;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class RegisterController extends Controller
 {
@@ -54,6 +56,18 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'tier' => ['required'],
+            'card_number'   => Rule::requiredIf(function () use ($data) {
+                                    return $data['tier'] === 'paid';
+                                }),
+            'card_exp'      => Rule::requiredIf(function () use ($data) {
+                                    return $data['tier'] === 'paid';
+                                }),
+            'card_cvc'      => Rule::requiredIf(function () use ($data) {
+                                    return $data['tier'] === 'paid';
+                                }),
+            'card_zip'      => Rule::requiredIf(function () use ($data) {
+                                    return $data['tier'] === 'paid';
+                                }),
         ]);
     }
 
@@ -65,11 +79,33 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'tier' => $data['tier'],
         ]);
+
+        if($data['tier'] == 'paid') {
+
+            $service = new PaymentService();
+
+            // Parse expiration
+            $date = explode('/', $data['card_exp']);
+
+            $result = $service->process(
+                [
+                    'card_no'   => $data['card_number'],
+                    'card_month'    => trim($date[0]),
+                    'card_year' => trim($date[1]),
+                    'card_cvv'  => $data['card_cvc'],
+                ]
+            );
+
+            if(!isset($result['error'])) {
+                $user->update(['tier' => 'free']);
+            }
+
+        }
     }
 }

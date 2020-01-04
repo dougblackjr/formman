@@ -30,3 +30,9 @@ Route::delete('response/{response}', 'ResponseController@delete');
 Route::get('/export/{type}/{form}', 'FormController@export');
 
 Route::post('/submit/{slug}', 'ResponseController@store');
+
+// Upgrade
+Route::view('/upgrade', 'auth.upgrade')->middleware('auth');
+Route::post('/upgrade', 'UpgradeController@upgrade')->name('upgrade.post');
+
+Route::view('/success', 'success')->name('success');
