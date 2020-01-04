@@ -3,6 +3,7 @@
 return [
 	'use_limits'		=> env('FORMMAN_USE_LIMITS'),
 	'contact_form_url'	=> env('FORMMAN_CONTACT_URL'),
+	'max_file_size'		=> 2097152,
 	'tiers'	=> [
 		'free' => [
 			'can_use_files'	=> false,
