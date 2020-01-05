@@ -105,8 +105,7 @@ class FormController extends Controller
 
         $this->authorize('read', $form);
 
-        $formToSend = Form::find($form->id)
-                            ->with(['responses' => function($q) {
+        $formToSend = Form::with(['responses' => function($q) {
                                 $q->orderBy('created_at', 'desc');
                             }])
                             ->withCount([
@@ -118,6 +117,7 @@ class FormController extends Controller
                                     $query->where('created_at', '>=', now()->subDay());
                                 }
                             ])
+                            ->where('id', $form->id)
                             ->first();
 
         $form = $formToSend;
