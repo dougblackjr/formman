@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Form;
 use App\Mail\NewResponseMail;
+use App\Events\NewResponse;
 use App\Response;
 use Illuminate\Http\Request;
 use Mail;
@@ -30,6 +31,8 @@ class ResponseService extends BaseService {
 			'is_spam'		=> $isSpam,
 			'is_active'		=> !$isSpam,
 		]);
+
+		event(new NewResponse($response));
 
 		return $response;
 

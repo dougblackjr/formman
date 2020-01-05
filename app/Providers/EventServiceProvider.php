@@ -18,12 +18,12 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        Registered::class => [
-            SendEmailVerificationNotification::class,
+        \Illuminate\Auth\Events\Registered::class => [
+            \Illuminate\Auth\Listeners\SendEmailVerificationNotification::class,
         ],
-        NewResponse::class => [
-            SendNewResponseMail::class,
-            PingWebhook::class
+        \App\Events\NewResponse::class => [
+            \App\Listeners\SendNewResponseMail::class,
+            \App\Listeners\PingWebhook::class,
         ],
     ];
 
