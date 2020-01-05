@@ -50,6 +50,7 @@ class ResponseService extends BaseService {
 		$json = $data->all();
 
 		unset($json['important_checkbox']);
+		unset($json['redirect']);
 
 		foreach ($json as $key => $value) {
 

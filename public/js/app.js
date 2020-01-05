@@ -5458,7 +5458,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      htmlCodeVariable: "\n<form action=\"".concat(this.form.url, "\"\n\t\tmethod=\"POST\"\n\t\taccept-charset=\"utf-8\">\n\t<label for=\"name\">Name</label>\n\t<input type=\"text\" name=\"name\" />\n\t<label for=\"name\">Email</label>\n\t<input type=\"text\" name=\"email\" />\n\t<!-- Here's the spam field -->\n\t<input type=\"checkbox\" name=\"important_checkbox\" value=\"yes\" style=\"display:none !important\" tabindex=\"-1\" autocomplete=\"off\" />\n\t<input type=\"submit\" value=\"Submit\" />\n</form>")
+      htmlCodeVariable: "\n<form action=\"".concat(this.form.url, "\"\n\t\tmethod=\"POST\"\n\t\taccept-charset=\"utf-8\">\n\t<label for=\"name\">Name</label>\n\t<input type=\"text\" name=\"name\" />\n\t<label for=\"name\">Email</label>\n\t<input type=\"text\" name=\"email\" />\n\t<!-- Here's the spam field -->\n\t<input type=\"checkbox\" name=\"important_checkbox\" value=\"yes\" style=\"display:none !important\" tabindex=\"-1\" autocomplete=\"off\" />\n\t<input type=\"hidden\" name=\"redirect\" value=\"https://example.com\" />\n\t<input type=\"submit\" value=\"Submit\" />\n</form>")
     };
   }
 });

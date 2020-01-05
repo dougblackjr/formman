@@ -107,6 +107,7 @@
                 <div class="mb-4">
                     <textarea class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" name="message" placeholder="Write something..." rows="5"></textarea>
                     <input type="checkbox" name="important_checkbox" value="yes" style="display:none !important" tabindex="-1" autocomplete="off" />
+                    <input type="hidden" name="redirect" value="https://formman.co" />
                 </div>
                 <div>
                     <button class="inline-block w-full py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow">Submit</button>

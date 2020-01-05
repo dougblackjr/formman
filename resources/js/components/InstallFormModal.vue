@@ -38,6 +38,7 @@
 	<input type="text" name="email" />
 	<!-- Here's the spam field -->
 	<input type="checkbox" name="important_checkbox" value="yes" style="display:none !important" tabindex="-1" autocomplete="off" />
+	<input type="hidden" name="redirect" value="https://example.com" />
 	<input type="submit" value="Submit" />
 </form>`
 			}

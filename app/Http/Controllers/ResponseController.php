@@ -35,7 +35,11 @@ class ResponseController extends Controller
 
         $response = $this->service->create($form, $request);
 
-        return response()->json($request->all());
+        return $request->wantsJSON()
+                ? response()->json($request->all())
+                : ($request->redirect)
+                    ? redirect($request->redirect)
+                    : redirect()->back();
 
     }
 
