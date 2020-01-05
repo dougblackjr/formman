@@ -31,6 +31,8 @@ class ResponseService extends BaseService {
 			'is_active'		=> !$isSpam,
 		]);
 
+		return $response;
+
 	}
 
 	private function formIsActive($form)
