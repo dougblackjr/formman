@@ -86,7 +86,7 @@ class FormController extends Controller
             'secret' => Str::uuid()->toString(),
             'domain' => $request->domain,
             'enabled' => true,
-            'notify_by_email' => $request->notify_by_email,
+            'notify_by_email' => $request->notify_by_email ? true : false,
             'webhook_url' => $request->webhook_url
         ]);
 
