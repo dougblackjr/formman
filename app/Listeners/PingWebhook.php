@@ -21,7 +21,7 @@ class PingWebhook
     public function __construct()
     {
 
-        $this->client
+        $this->client = new Client();
 
     }
 

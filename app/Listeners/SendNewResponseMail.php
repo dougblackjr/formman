@@ -36,6 +36,8 @@ class SendNewResponseMail
 
         $response->load('form');
 
+        $form = $response->form;
+
         Log::info('Got new response event: ' . $response->id);
 
         if(!$response->is_spam && $response->form->notify_by_email) {
