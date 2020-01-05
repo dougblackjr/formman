@@ -42,6 +42,8 @@ class ExportService extends BaseService {
 	public function toCsv()
 	{
 
+		if(empty($this->data)) return null;
+
 		$writer = $writer = WriterEntityFactory::createCSVWriter();
 
 		$writer->openToBrowser($this->file_name . '.csv');
