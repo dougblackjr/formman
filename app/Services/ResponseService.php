@@ -73,8 +73,6 @@ class ResponseService extends BaseService {
 
 		}
 
-		if($request->hasFile)
-
 		return $json;
 
 	}
