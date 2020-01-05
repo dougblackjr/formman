@@ -113,15 +113,32 @@
             </form>
         </div>
         <div class="flex flex-col lg:flex-row lg:justify-center -mx-4">
-            <div class="px-4"><img class="inline-block w-8 h-8 pr-2" src="/marketing/icons/home.svg" alt=""><span>1725 Slough Avenue, Scranton</span></div>
-            <div class="px-4"><img class="inline-block w-8 h-8 pr-2" src="/marketing/icons/mobile.svg" alt=""><span>555-111-555</span></div>
-            <div class="px-4"> <img class="inline-block w-8 h-8 pr-2" src="/marketing/icons/message.svg" alt=""><span>scranton@dundermifflin.com</span></div>
+            <div class="px-4">
+                <a href="https://triplenerdscore.net/" title="triple nerd score" target="_blank">
+                    <img class="inline-block pr-2 w-20" src="https://triplenerdscore.net/assets/images/logo/tns.png" />
+                </a>
+            </div>
+            <div class="px-4">
+                <img class="inline-block w-8 h-8 pr-2" src="/marketing/icons/home.svg" alt="">
+                <span>Philadelphia, PA</span>
+            </div>
+            <div class="px-4">
+                <a href="tel:2159953677" title="Call triple nerd score">
+                    <img class="inline-block w-8 h-8 pr-2" src="/marketing/icons/mobile.svg" alt="">
+                    <span>215-995-3677</span>
+                </a>
+            </div>
+            <div class="px-4">
+                <a href="mailto:doug@triplenerdscore.net">
+                    <img class="inline-block w-8 h-8 pr-2" src="/marketing/icons/message.svg" alt="">
+                    <span>doug [at] triplenerdscore.net</span>
+                </a>
+            </div>
         </div>
     </section>
     <footer class="p-4">
-        <div class="flex flex-col lg:flex-row items-center">
-            <div class="w-full lg:w-auto lg:mr-auto text-center lg:text-left">&copy 2019 Dunder Mifflin</div>
-            <div class="flex justify-center items-center mt-4 lg:mt-0"><img class="w-6 h-6" src="/marketing/icons/message.svg" alt=""><img class="w-6 h-6 mx-6" src="/marketing/icons/share.svg" alt=""><img class="w-6 h-6" src="/marketing/icons/star.svg" alt=""></div>
+        <div class="flex flex-row items-center text-center">
+            <div class="w-full lg:w-auto lg:mr-auto text-center">&copy {!! date('Y') !!} tripleNERDscore</div>
         </div>
     </footer>
 </div>
