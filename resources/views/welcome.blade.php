@@ -24,7 +24,7 @@
             <div class="absolute inset-0 bg-black opacity-50"></div>
             <div class="z-10 w-full px-8 md:px-24 text-center text-white">
                 <h2 class="text-4xl mb-2 font-heading">Make it easy to get your information quick!</h2>
-                <p class="mb-8">Static sites are amazing! Wordpress is amazing! But getting forms to work can be a pain. Formman makes is uber-easy to get a form moving quick and safe.</p>
+                <p class="mb-8">Static sites are amazing! Wordpress is amazing! But getting forms to work can be a pain. Formman makes it uber-easy to get a form moving quick and safe.</p>
                 <div class="flex flex-wrap align-center -mx-4">
                     <div class="w-1/2 lg:w-1/6 px-4 mb-6">
                         <img class="mx-auto mb-2" src="/marketing/icons/server.svg" alt="">
