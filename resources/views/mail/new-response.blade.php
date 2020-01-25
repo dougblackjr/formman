@@ -2,7 +2,7 @@
 # You have a new response on {{ $form->name }}
 
 @foreach($response->data as $key => $value)
-    {{ $key }}: {{ $value }}
+    {{ $key }}: {!! strip_tags($value) !!}
     
 @endforeach
 
