@@ -70,4 +70,10 @@ class Form extends Model
 
 	}
 
+	public function scopeBySecret($query, $secret) {
+
+		$query->where('secret', $secret);
+
+	}
+
 }
