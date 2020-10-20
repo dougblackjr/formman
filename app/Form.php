@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\FormIntegration;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -41,33 +42,32 @@ class Form extends Model
 
 	public function getUrlAttribute()
 	{
-
 		return config('app.url') . '/submit/' . $this->slug;
-
 	}
 
-	public function user() {
-
+	public function user()
+	{
 		return $this->belongsTo(User::class);
-
 	}
 
-	public function responses() {
-
+	public function responses()
+	{
 		return $this->hasMany(Response::class);
-
 	}
 
-	public function scopeByUser($query, $id) {
-
+	public function scopeByUser($query, $id)
+	{
 		$query->where('user_id', $id);
-
 	}
 
-	public function scopeBySlug($query, $slug) {
-
+	public function scopeBySlug($query, $slug)
+	{
 		$query->where('slug', $slug);
+	}
 
+	public function integrations()
+	{
+		return $this->hasMany(FormIntegration::class);
 	}
 
 }
