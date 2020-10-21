@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Form;
 use App\Mail\NewResponseMail;
 use App\Events\NewResponse;
+use App\Events\NewResponseFromWebhook;
 use App\Response;
 use Illuminate\Http\Request;
 use Mail;
@@ -17,7 +18,7 @@ class ResponseService extends BaseService {
 
 	}
 
-	public function create(Form $form, Request $request)
+	public function create(Form $form, Request $request, $fromHook = false)
 	{
 
 		$isSpam = $this->isSpam($request);
@@ -32,62 +33,46 @@ class ResponseService extends BaseService {
 			'is_active'		=> !$isSpam,
 		]);
 
-		event(new NewResponse($response));
-
+		if( $fromHook ) {
+			event(new NewResponseFromWebhook($response));
+		} else {
+			event(new NewResponse($response));
+		}
 		return $response;
-
 	}
 
 	private function formIsActive($form)
 	{
-
 		return $form->enabled;
-
 	}
 
 	private function parseData($request, $form)
 	{
-
 		$user = $form->user;
-
 		$data = clone $request;
-
 		$json = $data->all();
 
 		unset($json['important_checkbox']);
 		unset($json['redirect']);
 
 		foreach ($json as $key => $value) {
-
 			if($request->hasFile($key)) {
-
 				$size = $request->file($key)->getSize();
-
 				if(config('formman.tiers.' . $user->tier . '.can_use_files') || $size > config('formman.max_file_size')) {
-
 					$url = $request->photo->store('images', 's3');
-
 					$json['$key'] = $url;
-
 				} else {
-
 					unset($json['key']);
-
 				}
-
 			}
-
 		}
 
 		return $json;
-
 	}
 
 	private function isSpam($request)
 	{
-
 		return $request->has('important_checkbox');
-
 	}
 
 }

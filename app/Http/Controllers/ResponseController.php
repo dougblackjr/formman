@@ -33,6 +33,14 @@ class ResponseController extends Controller
 
         $form = Form::bySlug($slug)->first();
 
+        if( ! $form ) {
+            return $request->wantsJSON()
+                ? response()->json($request->all())
+                : ($request->redirect)
+                    ? redirect($request->redirect)
+                    : redirect()->back();
+        }
+
         $response = $this->service->create($form, $request);
 
         return $request->wantsJSON()
@@ -40,6 +48,29 @@ class ResponseController extends Controller
                 : ($request->redirect)
                     ? redirect($request->redirect)
                     : redirect()->back();
+
+    }
+
+    public function storeFromHook(Request $request, string $slug)
+    {
+
+        $secret = $request->incoming;
+
+        $form = Form::bySlug($slug)
+                        ->bySecret($secret)
+                        ->first();
+
+        if( ! $secret || ! $form ) {
+            return $request->wantsJSON()
+                ? response()->json($request->all())
+                : ($request->redirect)
+                    ? redirect($request->redirect)
+                    : redirect()->back();
+        }
+
+        $response = $this->service->create($form, $request, $true);
+
+        return response()->json($request->all());
 
     }
 

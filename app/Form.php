@@ -70,4 +70,10 @@ class Form extends Model
 		return $this->hasMany(FormIntegration::class);
 	}
 
+	public function scopeBySecret($query, $secret) {
+
+		$query->where('secret', $secret);
+
+	}
+
 }
