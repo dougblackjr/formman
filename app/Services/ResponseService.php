@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Form;
 use App\Mail\NewResponseMail;
 use App\Events\NewResponse;
+use App\Events\NewResponseFromWebhook;
 use App\Response;
 use Illuminate\Http\Request;
 use Mail;
@@ -17,7 +18,7 @@ class ResponseService extends BaseService {
 
 	}
 
-	public function create(Form $form, Request $request)
+	public function create(Form $form, Request $request, $fromHook = false)
 	{
 
 		$isSpam = $this->isSpam($request);
@@ -32,7 +33,11 @@ class ResponseService extends BaseService {
 			'is_active'		=> !$isSpam,
 		]);
 
-		event(new NewResponse($response));
+		if( $fromHook ) {
+			event(new NewResponseFromWebhook($response));
+		} else {
+			event(new NewResponse($response));
+		}
 		return $response;
 	}
 

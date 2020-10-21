@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use App\Events\NewResponse;
+use App\Events\NewResponseFromWebhook;
 use App\Listeners\SendNewResponseMail;
 use App\Listeners\PingWebhook;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -21,9 +22,12 @@ class EventServiceProvider extends ServiceProvider
         \Illuminate\Auth\Events\Registered::class => [
             \Illuminate\Auth\Listeners\SendEmailVerificationNotification::class,
         ],
-        \App\Events\NewResponse::class => [
-            \App\Listeners\SendNewResponseMail::class,
-            \App\Listeners\PingWebhook::class,
+        NewResponse::class => [
+            SendNewResponseMail::class,
+            PingWebhook::class,
+        ],
+        NewResponseFromWebhook::class => [
+            PingWebhook::class,
         ],
     ];
 
@@ -35,7 +39,5 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
-        //
     }
 }
