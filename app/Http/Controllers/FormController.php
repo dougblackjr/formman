@@ -135,11 +135,9 @@ class FormController extends Controller
 
     public function edit(Form $form)
     {
-
         $this->authorize('edit', $form);
-
-        return view('forms.edit', compact('form'));
-
+        $user = Auth::user();
+        return view('forms.edit', compact('form', 'user'));
     }
 
     /**

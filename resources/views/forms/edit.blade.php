@@ -27,6 +27,13 @@
                     <div class="mb-4">
                         <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" placeholder="Webhook URL" name="webhook_url" value="{{ $form->webhook_url }}" />
                     </div>
+                    @if($user->tier == 'paid')
+                        <div class="my-10 border-t border-b">
+                            <h3 class="text-2xl mb-2 font-heading">Incoming Webhook</h3>
+                            <p class="text-md mb-2">You can post to this endpoint to manually connect forms: {{ config('app.url') . '/hook/' . $form->slug }}</p>
+                            <p class="text-md mb-2">Including the following parameter in your call: <pre>"incoming": {{ $form->secret }}</pre></p>
+                        </div>
+                    @endif
                     <div class="mb-4">
                         <div class="mb-4">
                             <label class="text-gray-500">
