@@ -31,7 +31,7 @@ class PingWebhook
      * @param  NewResponse  $event
      * @return void
      */
-    public function handle(NewResponse $event)
+    public function handle($event)
     {
         $response = $event->response;
 

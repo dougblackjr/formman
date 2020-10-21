@@ -18,7 +18,7 @@ class ResponseController extends Controller
 
         $this->service = new ResponseService();
 
-        $this->middleware(['auth'])->except('store');
+        $this->middleware(['auth'])->except(['store', 'storeFromHook']);
 
     }
 
@@ -68,7 +68,7 @@ class ResponseController extends Controller
                     : redirect()->back();
         }
 
-        $response = $this->service->create($form, $request, $true);
+        $response = $this->service->create($form, $request, true);
 
         return response()->json($request->all());
 
