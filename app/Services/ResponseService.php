@@ -33,61 +33,41 @@ class ResponseService extends BaseService {
 		]);
 
 		event(new NewResponse($response));
-
 		return $response;
-
 	}
 
 	private function formIsActive($form)
 	{
-
 		return $form->enabled;
-
 	}
 
 	private function parseData($request, $form)
 	{
-
 		$user = $form->user;
-
 		$data = clone $request;
-
 		$json = $data->all();
 
 		unset($json['important_checkbox']);
 		unset($json['redirect']);
 
 		foreach ($json as $key => $value) {
-
 			if($request->hasFile($key)) {
-
 				$size = $request->file($key)->getSize();
-
 				if(config('formman.tiers.' . $user->tier . '.can_use_files') || $size > config('formman.max_file_size')) {
-
 					$url = $request->photo->store('images', 's3');
-
 					$json['$key'] = $url;
-
 				} else {
-
 					unset($json['key']);
-
 				}
-
 			}
-
 		}
 
 		return $json;
-
 	}
 
 	private function isSpam($request)
 	{
-
 		return $request->has('important_checkbox');
-
 	}
 
 }
