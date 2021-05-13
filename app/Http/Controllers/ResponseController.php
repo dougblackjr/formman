@@ -7,6 +7,7 @@ use App\Response;
 use App\Services\ResponseService;
 use App\User;
 use Illuminate\Http\Request;
+use Log;
 
 class ResponseController extends Controller
 {
@@ -43,11 +44,14 @@ class ResponseController extends Controller
 
         $response = $this->service->create($form, $request);
 
+        Log::info('RESPONSE: ' . json_encode($response));
+        Log::info('WANTS JSON? ' . ($request->wantsJSON() ? 'y' : 'n'));
+
         return $request->wantsJSON()
                 ? response()->json($request->all())
-                : ($request->redirect)
+                : ($request->redirect
                     ? redirect($request->redirect)
-                    : redirect()->back();
+                    : redirect()->back());
 
     }
 
