@@ -33,6 +33,12 @@
                             <p class="text-md mb-2">You can post to this endpoint to manually connect forms: {{ config('app.url') . '/hook/' . $form->slug }}</p>
                             <p class="text-md mb-2">Including the following parameter in your call: <pre>"incoming": {{ $form->secret }}</pre></p>
                         </div>
+                        <div class="my-10 border-t border-b">
+                            <h3 class="text-2xl mb-2 font-heading">Response Template</h3>
+                            <p class="text-md mb-2">You can send an automated response when the form is filled in. Any incoming fields can be displayed with the syntax `&#123;field&#125;`</p>
+                            <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" name="subject" placeholder="Subject" value="{{ $form->emailResponse ? $form->emailResponse->subject : '' }}" />
+                            <template-editor :input-name="'template'" :val='@json($form->emailResponse ? $form->emailResponse->json_template : null)'/>
+                        </div>
                     @endif
                     <div class="mb-4">
                         <div class="mb-4">

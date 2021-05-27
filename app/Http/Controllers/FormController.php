@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\EmailResponse;
 use App\Form;
 use App\Response;
 use App\Services\ExportService;
@@ -114,7 +115,7 @@ class FormController extends Controller
 
         $formToSend = Form::with(['responses' => function($q) {
                                 $q->orderBy('created_at', 'desc');
-                            }])
+                            }], 'emailResponse')
                             ->withCount([
                                 'responses',
                                 'responses as spam_count' => function(Builder $query) {
@@ -136,6 +137,7 @@ class FormController extends Controller
     public function edit(Form $form)
     {
         $this->authorize('edit', $form);
+        $form->load('emailResponse');
         $user = Auth::user();
         return view('forms.edit', compact('form', 'user'));
     }
@@ -149,7 +151,6 @@ class FormController extends Controller
      */
     public function update(FormRequest $request, Form $form)
     {
-
         $this->authorize('edit', $form);
 
         $data = [
@@ -162,6 +163,22 @@ class FormController extends Controller
         ];
 
         $form->update($data);
+
+        if($request->has('template')) {
+            $template = json_decode($request->template);
+            if($template) {
+                $emailResponse = EmailResponse::updateOrCreate(
+                    [
+                        'form_id' => $form->id,
+                    ],
+                    [
+                        'subject' => $request->subject,
+                        'template' => $template->html,
+                        'json_template' => json_encode($template->design),
+                    ]
+                );
+            }
+        }
 
         return redirect("/form/{$form->id}");
 

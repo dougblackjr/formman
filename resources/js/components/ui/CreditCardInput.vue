@@ -6,7 +6,9 @@
 
 <script>
 
-	import { CreditCardField, InlineCreditCardField } from 'vue-credit-card-field';
+	// import { CreditCardField, InlineCreditCardField } from 'vue-credit-card-field';
+	import CreditCardField from 'vue-credit-card-field/src/Components/CreditCardField';
+	import InlineCreditCardField from 'vue-credit-card-field/src/Components/InlineCreditCardField';
 
 	export default {
 		components: {

@@ -36,15 +36,11 @@ class Response extends Model
     	return $this->belongsTo(Form::class);
     }
 
-    public function scopeInThisMonth($query) {
-
+    public function scopeInThisMonth($query)
+    {
         $now = now();
-
         $monthStart = $now->startOfMonth();
-
         $monthEnd = $now->endOfMonth();
-
         $query->whereBetween('created_at', [$monthStart, $monthEnd]);
-
     }
 }

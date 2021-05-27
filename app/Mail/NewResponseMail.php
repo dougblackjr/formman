@@ -14,7 +14,6 @@ class NewResponseMail extends Mailable
     use Queueable, SerializesModels;
 
     public $form;
-
     public $response;
 
     /**
@@ -24,11 +23,8 @@ class NewResponseMail extends Mailable
      */
     public function __construct(Form $form, Response $response)
     {
-
         $this->form = $form;
-
         $this->response = $response;
-
     }
 
     /**
@@ -38,10 +34,8 @@ class NewResponseMail extends Mailable
      */
     public function build()
     {
-
         return $this->subject("You have a new response on {$this->form->name}")
                     ->markdown('mail.new-response');
-
     }
 
 }

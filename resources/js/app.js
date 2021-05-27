@@ -12,6 +12,11 @@ Vue.use(Vuex)
 
 const app = new Vue({
     el: '#app',
+    data() {
+        return {
+            template: ''
+        }
+    },
     methods: {
     	toggleModal() {
     		this.$store.dispatch('toggleModal')
