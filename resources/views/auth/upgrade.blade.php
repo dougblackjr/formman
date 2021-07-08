@@ -2,6 +2,11 @@
 
 @section('content')
     <section class="py-16 px-4">
+        <div>
+        @if(session('failed'))
+        <div class="text-center bg-red-500 py-4 rounded-full border-4 border-red-600 text-white mb-6 shadow-lg">{{ session('failed') }}</div>
+        @endif
+        </div>
         <div class="text-center max-w-2xl mx-auto mb-10"><span class="text-xl text-blue-600">You're Upgrading Formman!</span>
             <h2 class="text-3xl md:text-5xl mt-2 leading-tight tracking-wide">How exciting! You must be hitting a bunch of traffic! Let's get you rolling!</h2>
         </div>

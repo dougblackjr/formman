@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\EmailResponse;
 use App\Form;
 use App\Response;
+use App\Key;
 use App\Services\ExportService;
 use App\Http\Requests\FormRequest;
 use App\User;
@@ -44,6 +45,8 @@ class FormController extends Controller
                         ])
                         ->get();
 
+        
+
         $responses_count = $forms->reduce(function($carry, $f) {
             return $carry + $f->responses_count;
         });
@@ -56,6 +59,7 @@ class FormController extends Controller
             return $carry + $f->recent_count;
         });
 
+        
         $data = [
             'forms'             => $forms,
             'total_forms'       => $forms->count(),
@@ -71,7 +75,19 @@ class FormController extends Controller
     public function create()
     {
 
-        return view('forms.create');
+        $user = User::find(Auth::user()->id);
+        $email = $user->email;
+        $plan = $user->tier;
+        $forms = Form::where('user_id', $user->id)->count();
+       
+        if($plan == 'free') {
+            if($forms > 0) {
+                return redirect()->route('upgrade')->with('failed', 'You hit your form limit. Please upgrade to increase!');
+            }
+            
+        }
+
+        return view('forms.create', compact('email', 'plan'));
 
     }
 
@@ -97,6 +113,8 @@ class FormController extends Controller
             'notify_by_email' => $request->notify_by_email ? true : false,
             'webhook_url' => $request->webhook_url
         ]);
+
+       
 
         return redirect("/form/{$form->id}");
         
@@ -160,6 +178,8 @@ class FormController extends Controller
             'notify_by_email' => $request->has('notify_by_email'),
             'webhook_url' => $request->webhook_url,
             'enabled' => $request->has('enabled'),
+            'site_key' => $request->site_key,
+            'secret_key' => $request->secret_key,
         ];
 
         $form->update($data);

@@ -32,8 +32,14 @@ Route::get('/export/{type}/{form}', 'FormController@export');
 Route::post('/submit/{slug}', 'ResponseController@store');
 Route::post('/hook/{slug}', 'ResponseController@storeFromHook');
 
+// Admin Routes
+Route::get('/admin', 'AdminController@index');
+
+// Profile Routes
+Route::get('/profile', 'ProfileController@index');
+
 // Upgrade
-Route::view('/upgrade', 'auth.upgrade')->middleware('auth');
+Route::view('/upgrade', 'auth.upgrade')->middleware('auth')->name('upgrade');
 Route::post('/upgrade', 'UpgradeController@upgrade')->name('upgrade.post');
 
 Route::view('/success', 'success')->name('success');

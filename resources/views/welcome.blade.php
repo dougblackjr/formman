@@ -86,7 +86,12 @@
                 <a class="inline-block py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow" href="/register">Sign Up Now!</a>
             </div>
             <div class="w-full md:w-1/2 p-8 mb-4 md:mb-0 md:border-l">
-                <h3 class="text-5xl font-heading">$7 / mo</h3>
+                <h3 class="text-5xl font-heading">$10 / mo</h3>
+                <p class="mt-4 mb-6 text-gray-500 leading-relaxed">All features + file support, <strong>unlimited</strong> responses</p>
+                <a class="inline-block py-4 px-8 leading-none text-blue-700 bg-blue-100 hover:bg-blue-200 rounded shadow" href="/register">Sign Up Now!</a>
+            </div>
+            <div class="w-full md:w-1/2 p-8 mb-4 md:mb-0 md:border-l">
+                <h3 class="text-5xl font-heading">$100 / yr</h3>
                 <p class="mt-4 mb-6 text-gray-500 leading-relaxed">All features + file support, <strong>unlimited</strong> responses</p>
                 <a class="inline-block py-4 px-8 leading-none text-blue-700 bg-blue-100 hover:bg-blue-200 rounded shadow" href="/register">Sign Up Now!</a>
             </div>

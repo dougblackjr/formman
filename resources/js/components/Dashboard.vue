@@ -4,7 +4,7 @@
 		    <div class="w-full lg:w-1/4 px-4 mb-6 lg:mb-0">
 		        <div class="h-full">
 		            <div class="text-center p-4 mb-2 bg-blue-500 text-white rounded">
-		                <h3 class="text-3xl leading-tight font-heading font-semibold">{{ total_responses }}</h3><span class="leading-none">Total Responses</span></div>
+		                <h3 class="text-3xl leading-tight font-heading font-semibold">{{ total_responses }}</h3><span class="leading-none">Total CResponses</span></div>
 		        </div>
 		    </div>
 		    <div class="w-full lg:w-1/4 px-4 mb-6 lg:mb-0">

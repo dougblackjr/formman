@@ -39,6 +39,19 @@
                             <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" name="subject" placeholder="Subject" value="{{ $form->emailResponse ? $form->emailResponse->subject : '' }}" />
                             <template-editor :input-name="'template'" :val='@json($form->emailResponse ? $form->emailResponse->json_template : null)'/>
                         </div>
+                        <div class="my-10 border-t border-b">
+                            <h3 class="text-2xl mb-2 font-heading">ReCaptcha Keys</h3>
+                            <p class="text-md mb-2">Enter ReCaptcha Keys for Spam Prevention. <a class="text-blue-400 underline" target="_blank" href="https://developers.google.com/recaptcha/intro">Get your keys</a></p>
+                            <div class="text-md mb-2">
+                                    <div class="mb-4">
+                                    <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" placeholder="Recaptcha Site Key" name="site_key" />
+                                    </div>
+                                    <div class="mb-4">
+                                    <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" placeholder="Recaptcha Secret Key" name="secret_key" />
+                                    </div>
+                        
+                            </div>
+                        </div>
                     @endif
                     <div class="mb-4">
                         <div class="mb-4">

@@ -13,9 +13,14 @@
                         <span>Free Plan</span>
                     </label>
                     <br class="lg:hidden">
-                    <label class="text-xl md:ml-4" for="billing-monthly">
+                    <label class="text-xl md:ml-4">
                         <input class="mr-2" type="radio" name="tier" value="paid" />
-                        <span>Unlimited Plan ($7 / mo)</span>
+                        <span>Monthly Unlimited Plan ($10 / mo)</span>
+                    </label>
+                    <br class="lg:hidden">
+                    <label class="text-xl md:ml-4">
+                        <input class="mr-2" type="radio" name="tier" value="paid" />
+                        <span>Annual Unlimited Plan ($100 / yr)</span>
                     </label>
                 </div>
                 <div class="p-8 bg-white rounded shadow-xl">
@@ -61,7 +66,9 @@
                                 <div class="mb-4">
                                     {{-- <div id="credit-card-payment"></div> --}}
                                     {{-- <button type="submit" data-tid="elements_examples.form.donate_button">Pay Now</button> --}}
-                                    <credit-card-input />
+                                    <div v-if="showCardField">
+                                        <credit-card-input />
+                                    </div>
                                 </div>
                                 <div class="mb-4">
                                     <input type="hidden" name="card_number" id="card_number" value="" />

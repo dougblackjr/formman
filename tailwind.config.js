@@ -15,6 +15,14 @@ module.exports = {
         
             black: '#000',
             white: '#fff',
+            headerGray: '#8191a1',
+            lightGray: '#f2f4f8',
+            textGray: '#8191A1',
+            logoBlue: {
+                base: '#195be0',
+                light: '#5e8eed',
+                dark: '#1754ce',
+            },
         
             gray: {
                 100: '#f7fafc',
@@ -402,18 +410,19 @@ module.exports = {
         },
     },
     variants: {
+        
         accessibility: ['responsive', 'focus'],
         alignContent: ['responsive'],
         alignItems: ['responsive'],
         alignSelf: ['responsive'],
         appearance: ['responsive'],
         backgroundAttachment: ['responsive'],
-        backgroundColor: ['responsive', 'hover', 'focus'],
+        backgroundColor: ['responsive', 'hover', 'focus', 'checked'],
         backgroundPosition: ['responsive'],
         backgroundRepeat: ['responsive'],
         backgroundSize: ['responsive'],
         borderCollapse: ['responsive'],
-        borderColor: ['responsive', 'hover', 'focus'],
+        borderColor: ['responsive', 'hover', 'focus', 'checked'],
         borderRadius: ['responsive'],
         borderStyle: ['responsive'],
         borderWidth: ['responsive'],

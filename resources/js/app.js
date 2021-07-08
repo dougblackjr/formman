@@ -14,7 +14,9 @@ const app = new Vue({
     el: '#app',
     data() {
         return {
-            template: ''
+            template: '',
+            freePlan: true,
+            showCardField: true,
         }
     },
     methods: {
