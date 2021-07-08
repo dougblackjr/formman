@@ -36,7 +36,8 @@ Route::post('/hook/{slug}', 'ResponseController@storeFromHook');
 Route::get('/admin', 'AdminController@index');
 
 // Profile Routes
-Route::get('/profile', 'ProfileController@index');
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/profile', 'ProfileController@store');
 
 // Upgrade
 Route::view('/upgrade', 'auth.upgrade')->middleware('auth')->name('upgrade');

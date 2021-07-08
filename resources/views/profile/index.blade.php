@@ -1,10 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session('failed'))
+<div class="mx-auto mb-4 w-5/12 bg-red-500 text-white text-center py-4 rounded-full">{{ session('failed') }}</div>
+@endif
 <div class="mx-auto w-5/12 bg-white rounded-lg border border-logoBlue-light px-8 py-4">
     <div class="w-8/12 mx-auto">
         <h2 class="text-logoBlue-light my-4 text-3xl">Profile Information</h2>
-        <form action="">
+        <form action="" method="POST">
         @csrf
         <input type="text" placeholder="First Name" name="firstName" class="border  bg-gray-100 placeholder-logoBlue-light w-full text-logoBlue-light px-4 py-2 my-2 rounded-full">
         <input type="text" placeholder="Last Name" name="lastName" class="border bg-gray-100 placeholder-logoBlue-light w-full text-logoBlue-light px-4 py-2 my-2 rounded-full">

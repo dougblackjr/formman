@@ -82,7 +82,7 @@ class FormController extends Controller
        
         if($plan == 'free') {
             if($forms > 0) {
-                return redirect()->route('upgrade')->with('failed', 'You hit your form limit. Please upgrade to increase!');
+                return redirect()->route('upgrade')->with('failed', 'You hit your form capacity. Upgrade for unlimited forms!');
             }
             
         }

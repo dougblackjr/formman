@@ -34,7 +34,15 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if($request->password != $request->password_again) {
+            //repopulate form fields
+
+            //return failed message
+            return redirect()->route('profile')->with('failed', 'Passwords did not match!');
+        }
+
+        return $request->all();
     }
 
     /**
