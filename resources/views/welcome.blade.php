@@ -1,152 +1,27 @@
 @extends('layouts.pre-app')
 
 @section('content')
-<div class="container mx-auto px-4">
-    <section class="py-12 px-4">
-        <div class="flex flex-wrap items-center text-center lg:text-left -mx-2">
-            <div class="lg:w-1/2 px-2 lg:pr-10 mt-10 lg:mt-0 order-1 lg:order-none">
-                <h2 class="text-5xl mb-6 leading-tight font-heading">Easy Forms For Your Site!</h2>
-                <p class="mb-8 text-gray-500 leading-relaxed">Whether a static site, or Wordpress, or whatever, get a custom form on your site with no hassles in under 5 minutes!</p>
-                <div>
-                    <a class="inline-block py-4 px-8 mr-6 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow" href="/register">
-                        Sign up
-                    </a>
-                    <a class="text-blue-700 hover:underline" href="#" id="more-info-button">
-                        Learn more
-                    </a>
-                </div>
-            </div>
-            <div class="lg:w-1/2 px-2"> <img src="/marketing/pictures/certificate.svg" alt=""></div>
+<div class="container mx-auto text-center">
+     <div>
+        <h1 class="text-6xl text-logoBlue-light text-center mt-10 mb-6 font-black">Quick spam-free forms for your site!</h1>
+        <p class="text-gray-500 text-center">Whether a static or WordPress site, get a custom form on your site with no hassle in under 5-minutes.</p>
+     </div>
+
+     <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 p-8 bg-gradient-to-r from-logoBlue-bg via-logoBlue-light via-logoBlue-base to-logoBlue-dark rounded-none lg:rounded-r-full text-4xl text-white my-8">
+        <div class="my-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="stroke-yellow w-1/3 text-yellow-300 lg:text-yellow-100 block mx-auto mb-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" />
+        </svg>
+        Key Features
+        <p class="text-lg text-gray-100 lg:text-logoBlue-dark my-6">Here are some cool features</p>
         </div>
-    </section>
-    <section id="more-info" class="bg-cover" style="background-image: url('/marketing/pictures/work.jpg');">
-        <div class="pt-32 pb-24 flex relative">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-            <div class="z-10 w-full px-8 md:px-24 text-center text-white">
-                <h2 class="text-4xl mb-2 font-heading">Make it easy to get your information quick!</h2>
-                <p class="mb-8">Static sites are amazing! Wordpress is amazing! But getting forms to work can be a pain. Formman makes it uber-easy to get a form moving quick and safe.</p>
-                <div class="flex flex-wrap align-center -mx-4">
-                    <div class="w-1/2 lg:w-1/6 px-4 mb-6">
-                        <img class="mx-auto mb-2" src="/marketing/icons/server.svg" alt="">
-                        <h3 class="font-heading">Data Protection</h3>
-                    </div>
-                    <div class="w-1/2 lg:w-1/6 px-4 mb-6">
-                        <img class="mx-auto mb-2" src="/marketing/icons/shield.svg" alt="">
-                        <h3 class="font-heading">Spam Protection</h3>
-                    </div>
-                    <div class="w-1/2 lg:w-1/6 px-4 mb-6">
-                        <img class="mx-auto mb-2" src="/marketing/icons/cloud-tools.svg" alt="">
-                        <h3 class="font-heading">Webhooks For Your Own Info</h3>
-                    </div>
-                    <div class="w-1/2 lg:w-1/6 px-4 mb-6">
-                        <img class="mx-auto mb-2" src="/marketing/icons/cart.svg" alt="">
-                        <h3 class="font-heading">Value-based price (it's 98% free)</h3>
-                    </div>
-                    <div class="w-1/2 lg:w-1/6 px-4 mb-6">
-                        <img class="mx-auto mb-2" src="/marketing/icons/badge.svg" alt="">
-                        <h3 class="font-heading">Performance</h3>
-                    </div>
-                    <div class="w-1/2 lg:w-1/6 px-4 mb-6">
-                        <img class="mx-auto mb-2" src="/marketing/icons/hourglass.svg" alt="">
-                        <h3 class="font-heading">5-Minute Implementation</h3>
-                    </div>
-                </div>
-            </div>
+        <div class="col-span-2">
+        <ul class="py-8">
+        <li class="my-6">Data Protection</li>
+        <li class="my-6">Spam Protection</li>
+        <li class="my-6">Webhooks</li>
+        <li class="my-6">Quick and easy!</li>
+        </ul>
         </div>
-    </section>
-    <section class="py-12 px-4">
-        <div class="flex flex-wrap items-center text-center lg:text-left -mx-2">
-            <div class="lg:w-1/2 px-2"><img src="/marketing/pictures/new_ideas.svg" alt=""></div>
-            <div class="lg:w-1/2 px-2 lg:pl-16 mt-10 lg:mt-0">
-                <h2 class="text-4xl px-4 mb-4 leading-tight font-heading">It's Too Easy To Get Started</h2>
-                <div class="p-4 mb-4">
-                    <h3 class="text-2xl mb-2 font-heading">1. Sign Up</h3>
-                    <p class="text-gray-500 leading-relaxed">Hit that beautiful blue button up top to sign up. No credit card necessary!</p>
-                </div>
-                <div class="p-4 mb-4 rounded shadow-lg">
-                    <h3 class="text-2xl mb-2 font-heading">2. Create a Form</h3>
-                    <p class="text-gray-500 leading-relaxed">Add a form in the app, and set up how you want it handled. Get email responses, or set up a webhook to post the data back to your own app.</p>
-                </div>
-                <div class="p-4 mb-4">
-                    <h3 class="text-2xl mb-2 font-heading">3. Install the Form On Your Site!</h3>
-                    <p class="text-gray-500 leading-relaxed">Grab the code from Formman, and then add whatever fields you need. Formman is smart enough to grab your fields you send it.</p>
-                </div>
-                <div class="p-4 mb-4  shadow-lg">
-                    <h3 class="text-2xl mb-2 font-heading">4. Wait for delivery!</h3>
-                    <p class="text-gray-500 leading-relaxed">You can get notified by email, view responses directly in Formman, post them to your own app, or export them to a fancy schmancy spreadsheet!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-8 px-4">
-        <div class="flex flex-wrap -mx-8 text-center">
-            <div class="w-full md:w-1/2 p-8 mb-4 md:mb-0">
-                <h3 class="text-5xl font-heading">Free</h3>
-                <p class="flex-grow mt-4 mb-6 text-gray-500 leading-relaxed">All features, 50 responses/month</p>
-                <a class="inline-block py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow" href="/register">Sign Up Now!</a>
-            </div>
-            <div class="w-full md:w-1/2 p-8 mb-4 md:mb-0 md:border-l">
-                <h3 class="text-5xl font-heading">$10 / mo</h3>
-                <p class="mt-4 mb-6 text-gray-500 leading-relaxed">All features + file support, <strong>unlimited</strong> responses</p>
-                <a class="inline-block py-4 px-8 leading-none text-blue-700 bg-blue-100 hover:bg-blue-200 rounded shadow" href="/register">Sign Up Now!</a>
-            </div>
-            <div class="w-full md:w-1/2 p-8 mb-4 md:mb-0 md:border-l">
-                <h3 class="text-5xl font-heading">$100 / yr</h3>
-                <p class="mt-4 mb-6 text-gray-500 leading-relaxed">All features + file support, <strong>unlimited</strong> responses</p>
-                <a class="inline-block py-4 px-8 leading-none text-blue-700 bg-blue-100 hover:bg-blue-200 rounded shadow" href="/register">Sign Up Now!</a>
-            </div>
-        </div>
-    </section>
-    <section class="py-12 px-4">
-        <h2 class="text-3xl mb-8 text-center font-heading">Contact Us (or just try the app in action)</h2>
-        <div class="w-full max-w-2xl mx-auto mb-12">
-            <form action="{{ config('formman.contact_form_url') }}" method="POST" accept-charset="utf-8">
-                <div class="flex mb-4 -mx-2">
-                    <div class="w-1/2 px-2">
-                        <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="email" name="email" placeholder="Email" />
-                    </div>
-                    <div class="w-1/2 px-2">
-                        <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" name="name" placeholder="Name" />
-                    </div>
-                </div>
-                <div class="mb-4">
-                    <textarea class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" name="message" placeholder="Write something..." rows="5"></textarea>
-                    <input type="checkbox" name="important_checkbox" value="yes" style="display:none !important" tabindex="-1" autocomplete="off" />
-                    <input type="hidden" name="redirect" value="https://formman.co" />
-                </div>
-                <div>
-                    <button class="inline-block w-full py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow">Submit</button>
-                </div>
-            </form>
-        </div>
-        <div class="flex flex-col lg:flex-row lg:justify-center -mx-4">
-            <div class="px-4">
-                <a href="https://triplenerdscore.net/" title="triple nerd score" target="_blank">
-                    <img class="inline-block pr-2 w-20" src="https://triplenerdscore.net/assets/images/logo/tns.png" />
-                </a>
-            </div>
-            <div class="px-4">
-                <img class="inline-block w-8 h-8 pr-2" src="/marketing/icons/home.svg" alt="">
-                <span>Philadelphia, PA</span>
-            </div>
-            <div class="px-4">
-                <a href="tel:2159953677" title="Call triple nerd score">
-                    <img class="inline-block w-8 h-8 pr-2" src="/marketing/icons/mobile.svg" alt="">
-                    <span>215-995-3677</span>
-                </a>
-            </div>
-            <div class="px-4">
-                <a href="mailto:doug@triplenerdscore.net">
-                    <img class="inline-block w-8 h-8 pr-2" src="/marketing/icons/message.svg" alt="">
-                    <span>doug [at] triplenerdscore.net</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    <footer class="p-4">
-        <div class="flex flex-row items-center text-center">
-            <div class="w-full lg:w-auto lg:mr-auto text-center">&copy {!! date('Y') !!} tripleNERDscore</div>
-        </div>
-    </footer>
-</div>
+     </div>
 @endsection

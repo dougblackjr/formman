@@ -3,6 +3,12 @@ module.exports = {
     important: false,
     separator: ':',
     theme: {
+        extend: {
+            backgroundImage: theme => ({
+                
+            }),
+        },
+
         screens: {
             sm: '640px',
             md: '768px',
@@ -22,6 +28,7 @@ module.exports = {
                 base: '#195be0',
                 light: '#5e8eed',
                 dark: '#1754ce',
+                bg: '#e6eef2',
             },
         
             gray: {
@@ -360,9 +367,11 @@ module.exports = {
         },
         padding: theme => theme('spacing'),
         placeholderColor: theme => theme('colors'),
-        stroke: {
-            current: 'currentColor',
-        },
+        stroke: theme => ({
+            'white':'#ffffff',
+            'logoBlue':'#195be0',
+            'yellow': '#eed721',
+        }),
         textColor: theme => ({
             ...theme('colors'),
             body: '#1a202c',

@@ -15,15 +15,15 @@
                     <h3 class="text-2xl mb-2 font-heading">Login</h3>
                     <p class="mb-8 text-gray-500 leading-relaxed">Throw in your info here, and let's get rolling!</p>
                     <div class="mb-4">
-                        <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="text" placeholder="Email" name="email">
+                        <input class="appearance-none block w-full py-3 px-4 leading-tight text-logoBlue-light bg-gray-200 focus:bg-white placeholder-logoBlue-light border border-gray-200 focus:border-gray-500 rounded-full focus:outline-none" type="text" placeholder="Email" name="email">
                     </div>
                     <div class="mb-4">
-                        <input class="appearance-none block w-full py-3 px-4 leading-tight text-gray-700 bg-gray-200 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none" type="password" placeholder="Password" name="password">
+                        <input class="appearance-none block w-full py-3 px-4 leading-tight text-logoBlue-light bg-gray-200 focus:bg-white border placeholder-logoBlue-light border-gray-200 focus:border-gray-500 rounded-full focus:outline-none" type="password" placeholder="Password" name="password">
                     </div>
                     <div class="mb-4">
-                        <button type="submit" class="inline-block w-half py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow">Sign in</button>
+                        <button type="submit" class="inline-block w-half py-4 px-8 leading-none text-white bg-logoBlue-base hover:bg-logoBlue-dark rounded-full shadow">Sign in</button>
                         @if (Route::has('password.request'))
-                            <a class="inline-block w-half py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow" href="{{ route('password.request') }}">Forgot Your Password</a>
+                            <a class="inline-block w-half py-4 px-8 leading-none text-logoBlue-dark " href="{{ route('password.request') }}">Forgot Your Password</a>
                             </a>
                         @endif
                     </div>
@@ -33,7 +33,7 @@
                 <form class="w-full max-w-sm mx-auto">
                     <h3 class="text-2xl mb-2 font-heading">Sign Up</h3>
                     <p class="mb-8 text-gray-500 leading-relaxed">Get started for free (like, really free) today!</p>
-                    <a href="/register" class="inline-block w-full py-4 px-8 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded shadow">Sign up</a>
+                    <a href="/register" class="inline-block w-full py-4 px-8 leading-none text-white bg-logoBlue-base hover:bg-logoBlue-dark rounded-full shadow">Sign up</a>
                 </form>
             </div>
         </div>
