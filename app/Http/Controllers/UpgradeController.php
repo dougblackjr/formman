@@ -19,6 +19,12 @@ class UpgradeController extends Controller
 
 	}
 
+	public function index() {
+		$user = User::find(Auth::user()->id);
+
+		return view('auth.upgrade', compact('user'));
+	}
+
 	public function upgrade(Request $request)
 	{
 
