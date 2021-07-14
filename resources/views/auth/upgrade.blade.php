@@ -79,9 +79,7 @@
         @else
         <div class="bg-white border border-gray-500 p-4 text-center w-full lg:w-7/12 mx-auto">
             <div>
-            <h2 class="text-2xl lg:text-4xl text-logoBlue-light">Manage Subscription</h2>
-                <h3 class="text-lg lg:text-2xl mt-4">Current Plan</h3>
-                <p class="text-gray-600">Premium at $10 / month</p>
+            <h2 class="text-2xl lg:text-4xl text-logoBlue-light">Manage Credit Card</h2>
             </div>
             <div class="grid grid-cols-1 gap-4 divide-y">
                 <div>

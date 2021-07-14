@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Auth;
+use Hash;
 
 class ProfileController extends Controller
 {
@@ -13,7 +16,10 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile.index');
+
+        $user = User::find(Auth::user()->id);
+        $name = explode(' ', $user->name);
+        return view('profile.index', compact('user', 'name'));
     }
 
     /**
@@ -35,14 +41,32 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
 
-        if($request->password != $request->password_again) {
-            //repopulate form fields
+        $firstName = $request->firstName;
+        $lastName = $request->lastName;
+        $email = $request->email;
+        $pass = $request->password;
+        $passAgain = $request->password_again;
+
+        //if passwords do not match
+        if($pass != $passAgain) {
 
             //return failed message
             return redirect()->route('profile')->with('failed', 'Passwords did not match!');
+        } else {
+            //they match
+            $user = User::find(Auth::user()->id);
+            $user->name = "{$firstName} {$lastName}";
+            $user->email = $email;
+
+            //check if password fields are not empty
+            if(!empty($pass) && !empty($passAgain)) {
+                $user->password = Hash::make($passAgain);
+            }
+
+            $user->save();
         }
 
-        return $request->all();
+        return redirect()->route('profile')->with('success', 'Successfully Updated Profile Information');
     }
 
     /**

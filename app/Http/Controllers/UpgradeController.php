@@ -25,6 +25,10 @@ class UpgradeController extends Controller
 		return view('auth.upgrade', compact('user'));
 	}
 
+	public function menu() {
+		return "Account Menu Here";
+	}
+
 	public function upgrade(Request $request)
 	{
 

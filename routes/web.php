@@ -40,7 +40,9 @@ Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::post('/profile', 'ProfileController@store');
 
 // Upgrade
-Route::get('/upgrade', 'UpgradeController@index')->middleware('auth')->name('upgrade');
-Route::post('/upgrade', 'UpgradeController@upgrade')->name('upgrade.post');
+
+Route::get('/card', 'UpgradeController@index')->middleware('auth')->name('upgrade');
+Route::get('/upgrade', 'UpgradeController@menu')->middleware('auth')->name('menu');
+Route::post('/card', 'UpgradeController@upgrade')->name('upgrade.post');
 
 Route::view('/success', 'success')->name('success');
