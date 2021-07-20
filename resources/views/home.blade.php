@@ -26,6 +26,7 @@
 	@foreach($forms as $form)
 	<div class="w-full rounded-lg overflow-hidden shadow-sm bg-white my-8 p-4">
 			<div class="px-6 py-4">
+			<a class="float-right text-white bg-logoBlue-light px-4 py-2 rounded-full" href="/form/{{$form->id}}">View Form</a>
 				<h3 class="font-bold text-xl mb-2 text-gray-600">{{ $form->name }}</h3>
 				<img class="w-full my-4" src="{{ asset('images/card-image.jpeg')}}" alt="Card Image">
 				<p class="text-gray-500 text-sm">
@@ -52,6 +53,7 @@
 	@foreach($forms as $form)
 	<div class="w-full rounded-lg overflow-hidden shadow-sm bg-white my-8 p-4 col-span-2">
 			<div class="px-6 py-4">
+				<a class="float-right text-white bg-logoBlue-light px-4 py-2 rounded-full" href="/form/{{$form->id}}">View Form</a>
 				<h3 class="font-bold text-xl mb-2 text-gray-600">{{ $form->name }}</h3>
 				<img class="w-full my-4 bg-auto" src="{{ asset('images/card-image.jpeg')}}" alt="Card Image">
 				<p class="text-gray-500 text-sm">
